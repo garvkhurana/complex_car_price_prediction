@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type=text], input[type=number], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Price Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="km-driven">Kilometers Driven:</label>
+        <input type="number" id="km-driven" name="km-driven" placeholder="Enter kilometers driven" required>
+
+        <label for="transmission">Transmission:</label>
+        <select id="transmission" name="transmission" required>
+            <option value="">Select transmission</option>
+            <option value="Yes">Automatic</option>
+            <option value="No">Manual</option>
+        </select>
+
+        <label for="seats">Number of Seats:</label>
+        <input type="number" id="seats" name="seats" placeholder="Enter number of seats" required>
+
+        <label for="mileage">Mileage:</label>
+        <input type="number" id="mileage" name="mileage" placeholder="Enter mileage" required>
+
+        <label for="engine">Engine:</label>
+        <input type="number" id="engine" name="engine" placeholder="Enter engine capacity" required>
+
+        <label for="max_power">Maximum Power:</label>
+        <input type="number" id="max_power" name="max_power" placeholder="Enter maximum power" required>
+
+        <label for="torque">Torque:</label>
+        <input type="number" id="torque" name="torque" placeholder="Enter torque" required>
+
+        <label for="seller_type">Seller Type:</label>
+        <select id="seller_type" name="seller_type" required>
+            <option value="">Select seller type</option>
+            <option value="Individual">Individual</option>
+            <option value="Dealer">Dealer</option>
+            <option value="Trustmark Dealer">Trustmark Dealer</option>
+        </select>
+
+        <label for="owner">Owner:</label>
+        <select id="owner" name="owner" required>
+            <option value="">Select owner</option>
+            <option value="First Owner">First Owner</option>
+            <option value="Second Owner">Second Owner</option>
+            <option value="Third Owner">Third Owner</option>
+            <option value="Fourth & Above Owner">Fourth & Above Owner</option>
+            <option value="Test Drive Car">Test Drive Car</option>
+        </select>
+
+        <label for="number_of_years_driven">Number of Years Driven:</label>
+        <input type="number" id="number_of_years_driven" name="number_of_years_driven" placeholder="Enter number of years driven" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+    <div id="output"></div>
+</body>
+</html>
